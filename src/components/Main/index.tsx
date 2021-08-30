@@ -1,9 +1,9 @@
 import * as S from './styles';
 
-const HelloWorld = () => (
+const Main = () => (
   <S.Container>
     <S.Title>Hello World</S.Title>
   </S.Container>
 );
 
-export default HelloWorld;
+export default Main;

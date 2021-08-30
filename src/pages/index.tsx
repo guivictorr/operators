@@ -1,5 +1,5 @@
-import HelloWorld from '../components/HelloWorld';
+import Main from '../components/Main';
 
 export default function Home() {
-  return <HelloWorld />;
+  return <Main />;
 }
