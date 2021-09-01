@@ -24,7 +24,7 @@ describe('<Map />', () => {
     };
 
     const place2 = {
-      id: 1,
+      id: 2,
       name: 'Paris',
       slug: 'paris',
       location: {
@@ -36,5 +36,6 @@ describe('<Map />', () => {
     render(<Map places={[place, place2]} />);
 
     expect(screen.getByTitle(/nancy/i)).toBeInTheDocument();
+    expect(screen.getByTitle(/paris/i)).toBeInTheDocument();
   });
 });
