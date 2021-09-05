@@ -10,14 +10,13 @@ const AboutTemplate = () => (
       <CloseOutline size={32} />
     </LinkWrapper>
 
-    <S.Heading>Operators</S.Heading>
+    <S.Heading>About</S.Heading>
 
     <S.Body>
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio ipsa ea
-        rem asperiores eius dignissimos nemo, iure vero voluptas laudantium
-        corrupti, animi tempora consequuntur facilis maiores alias accusamus
-        aspernatur nostrum.
+        Hey everyone, this site show on a map the location of rainbowsix siege
+        operators and this project was built to learn new technologies of web
+        development.
       </p>
     </S.Body>
   </S.Content>
