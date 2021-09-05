@@ -4,7 +4,9 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --highlight: #2499ff;
     --background: #101114;
+    --dark: #24262a;
     --white: #eeeeee;
+    --gray: hsla(0,0%,100%,.55);
     --container: 100rem;
     --small: 1.5rem;
     --medium: 3rem;
@@ -23,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Roboto', 'Courier New', Courier, monospace,--apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: var(--background);
     color: var(--white);
   }
