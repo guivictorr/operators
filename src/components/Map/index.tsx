@@ -1,4 +1,5 @@
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import * as L from 'leaflet';
 
 export type Place = {
   id: string;
@@ -28,10 +29,21 @@ const Map = ({ places }: MapProps) => (
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
 
-    {places?.map(({ name, location, id }) => {
+    {places?.map(({ name, location, id, icon }) => {
       const { latitude, longitude } = location;
-
-      return <Marker title={name} key={id} position={[latitude, longitude]} />;
+      const customIcon = L.icon({
+        iconUrl: icon.url,
+        iconSize: [40, 40],
+        iconAnchor: [20, 20]
+      });
+      return (
+        <Marker
+          title={name}
+          key={id}
+          position={[latitude, longitude]}
+          icon={customIcon}
+        />
+      );
     })}
   </MapContainer>
 );
