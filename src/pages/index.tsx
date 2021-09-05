@@ -1,29 +1,16 @@
-import dynamic from 'next/dynamic';
 import { GetStaticProps } from 'next';
-import { InfoOutline } from '@styled-icons/evaicons-outline/InfoOutline';
 
 import client from 'graphql/client';
 import { GET_OPERATORS } from 'graphql/queries';
 import { GetOperatorsQuery } from 'graphql/generated/graphql';
 
-import LinkWrapper from 'components/LinkWrapper';
-
-const Map = dynamic(() => import('components/Map'), { ssr: false });
+import HomeTemplate from 'templates/Home';
 
 type HomeProps = {
   operators: GetOperatorsQuery['operators'];
 };
 
-export default function Home({ operators }: HomeProps) {
-  return (
-    <>
-      <LinkWrapper href="/about">
-        <InfoOutline size={32} />
-      </LinkWrapper>
-      <Map places={operators} />
-    </>
-  );
-}
+const Home = (props: HomeProps) => <HomeTemplate {...props} />;
 
 export const getStaticProps: GetStaticProps = async () => {
   const { operators } = await client.request<GetOperatorsQuery>(GET_OPERATORS);
@@ -34,3 +21,5 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   };
 };
+
+export default Home;
