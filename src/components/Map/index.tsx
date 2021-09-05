@@ -1,9 +1,12 @@
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 
 export type Place = {
-  id: number;
+  id: string;
   name: string;
   slug: string;
+  icon: {
+    url: string;
+  };
   location: {
     latitude: number;
     longitude: number;
