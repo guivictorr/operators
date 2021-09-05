@@ -2,10 +2,12 @@ import styled from 'styled-components';
 
 export const Flex = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 export const Wrapper = styled.main`
-  max-width: 40%;
+  max-width: 800px;
+  padding: 0 20px;
   margin: 100px auto;
 `;
 
@@ -20,7 +22,7 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--gray);
-  flex: 1;
+  flex: 1 1 200px;
   height: 100%;
   padding: 15px;
   color: var(--dark);
@@ -52,7 +54,7 @@ export const Name = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 5rem;
+  font-size: clamp(3rem, 2.5vw, 5rem);
   font-style: italic;
 `;
 
