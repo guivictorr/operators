@@ -12,7 +12,7 @@ export const Column = styled.div`
 `;
 
 export const Wrapper = styled.main`
-  max-width: 800px;
+  max-width: 1024px;
   padding: 0 20px;
   margin: 100px auto;
 `;

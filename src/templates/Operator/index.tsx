@@ -31,9 +31,8 @@ const OperatorTemplate = (operator: Operator) => {
             <Image
               src={operator.picture.url}
               alt={operator.name}
-              width={440}
-              height={515}
-              className="operator-picture"
+              width={515}
+              height={440}
             />
           </S.Flex>
           <S.Flex>
