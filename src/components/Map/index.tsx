@@ -29,8 +29,8 @@ const Map = ({ places }: MapProps) => {
       style={{ height: '100%', width: '100%' }}
     >
       <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        url={`https://api.mapbox.com/styles/v1/${process.env.NEXT_PUBLIC_MAPBOX_USER_ID}/${process.env.NEXT_PUBLIC_MAPBOX_STYLE_ID}/tiles/{z}/{x}/{y}?access_token=${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}`}
       />
 
       {places?.map(({ name, location, id, icon, slug }) => {
