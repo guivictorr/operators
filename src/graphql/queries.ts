@@ -26,6 +26,9 @@ export const GET_OPERATOR_BY_SLUG = gql`
       birthdate
       side
       birthplace
+      picture {
+        url
+      }
       icon {
         url
       }

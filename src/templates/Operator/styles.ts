@@ -3,6 +3,12 @@ import styled from 'styled-components';
 export const Flex = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Wrapper = styled.main`
@@ -27,11 +33,7 @@ export const Box = styled.div`
   padding: 15px;
   color: var(--dark);
   height: 125px;
-  margin-top: 60px;
-
-  & + div {
-    margin-left: 2px;
-  }
+  margin: 1px;
 `;
 
 export const BoxLabel = styled.p`

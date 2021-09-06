@@ -68,6 +68,7 @@ export type Asset = Node & {
   /** User that last published this document */
   publishedBy?: Maybe<User>;
   iconOperator: Array<Operator>;
+  pictureOperator: Array<Operator>;
   /** List of Asset versions */
   history: Array<Version>;
   /** Get the url for the asset with provided transformations applied. */
@@ -140,6 +141,19 @@ export type AssetIconOperatorArgs = {
 
 
 /** Asset system model */
+export type AssetPictureOperatorArgs = {
+  where?: Maybe<OperatorWhereInput>;
+  orderBy?: Maybe<OperatorOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  locales?: Maybe<Array<Locale>>;
+};
+
+
+/** Asset system model */
 export type AssetHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
@@ -179,6 +193,7 @@ export type AssetCreateInput = {
   size?: Maybe<Scalars['Float']>;
   mimeType?: Maybe<Scalars['String']>;
   iconOperator?: Maybe<OperatorCreateManyInlineInput>;
+  pictureOperator?: Maybe<OperatorCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<AssetCreateLocalizationsInput>;
 };
@@ -308,6 +323,9 @@ export type AssetManyWhereInput = {
   iconOperator_every?: Maybe<OperatorWhereInput>;
   iconOperator_some?: Maybe<OperatorWhereInput>;
   iconOperator_none?: Maybe<OperatorWhereInput>;
+  pictureOperator_every?: Maybe<OperatorWhereInput>;
+  pictureOperator_some?: Maybe<OperatorWhereInput>;
+  pictureOperator_none?: Maybe<OperatorWhereInput>;
 };
 
 export enum AssetOrderByInput {
@@ -349,6 +367,7 @@ export type AssetUpdateInput = {
   size?: Maybe<Scalars['Float']>;
   mimeType?: Maybe<Scalars['String']>;
   iconOperator?: Maybe<OperatorUpdateManyInlineInput>;
+  pictureOperator?: Maybe<OperatorUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: Maybe<AssetUpdateLocalizationsInput>;
 };
@@ -653,6 +672,9 @@ export type AssetWhereInput = {
   iconOperator_every?: Maybe<OperatorWhereInput>;
   iconOperator_some?: Maybe<OperatorWhereInput>;
   iconOperator_none?: Maybe<OperatorWhereInput>;
+  pictureOperator_every?: Maybe<OperatorWhereInput>;
+  pictureOperator_some?: Maybe<OperatorWhereInput>;
+  pictureOperator_none?: Maybe<OperatorWhereInput>;
 };
 
 /** References Asset record uniquely */
@@ -665,13 +687,6 @@ export type BatchPayload = {
   /** The number of nodes that have been affected by the Batch operation. */
   count: Scalars['Long'];
 };
-
-export enum Birthplace {
-  Country = 'country',
-  City = 'city',
-  Latitude = 'latitude',
-  Longitude = 'longitude'
-}
 
 /** Representing a color value comprising of HEX, RGBA and css color values */
 export type Color = {
@@ -1158,6 +1173,7 @@ export type Operator = Node & {
   /** User that last published this document */
   publishedBy?: Maybe<User>;
   icon: Asset;
+  picture: Asset;
   /** List of Operator versions */
   history: Array<Version>;
 };
@@ -1186,6 +1202,11 @@ export type OperatorPublishedByArgs = {
 
 
 export type OperatorIconArgs = {
+  locales?: Maybe<Array<Locale>>;
+};
+
+
+export type OperatorPictureArgs = {
   locales?: Maybe<Array<Locale>>;
 };
 
@@ -1226,6 +1247,7 @@ export type OperatorCreateInput = {
   biography: Scalars['RichTextAST'];
   report: Scalars['RichTextAST'];
   icon: AssetCreateOneInlineInput;
+  picture: AssetCreateOneInlineInput;
 };
 
 export type OperatorCreateManyInlineInput = {
@@ -1439,6 +1461,7 @@ export type OperatorManyWhereInput = {
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
   icon?: Maybe<AssetWhereInput>;
+  picture?: Maybe<AssetWhereInput>;
 };
 
 export enum OperatorOrderByInput {
@@ -1475,6 +1498,7 @@ export type OperatorUpdateInput = {
   biography?: Maybe<Scalars['RichTextAST']>;
   report?: Maybe<Scalars['RichTextAST']>;
   icon?: Maybe<AssetUpdateOneInlineInput>;
+  picture?: Maybe<AssetUpdateOneInlineInput>;
 };
 
 export type OperatorUpdateManyInlineInput = {
@@ -1736,6 +1760,7 @@ export type OperatorWhereInput = {
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
   icon?: Maybe<AssetWhereInput>;
+  picture?: Maybe<AssetWhereInput>;
 };
 
 /** References Operator record uniquely */
@@ -2427,4 +2452,4 @@ export type GetOperatorBySlugQueryVariables = Exact<{
 }>;
 
 
-export type GetOperatorBySlugQuery = { __typename?: 'Query', operator?: Maybe<{ __typename?: 'Operator', slug: string, name: string, realName: string, birthdate: any, side: string, birthplace: string, icon: { __typename?: 'Asset', url: string }, biography: { __typename?: 'RichText', html: string }, report: { __typename?: 'RichText', html: string } }> };
+export type GetOperatorBySlugQuery = { __typename?: 'Query', operator?: Maybe<{ __typename?: 'Operator', slug: string, name: string, realName: string, birthdate: any, side: string, birthplace: string, picture: { __typename?: 'Asset', url: string }, icon: { __typename?: 'Asset', url: string }, biography: { __typename?: 'RichText', html: string }, report: { __typename?: 'RichText', html: string } }> };

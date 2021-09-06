@@ -15,16 +15,27 @@ const OperatorTemplate = (operator: Operator) => {
       </LinkWrapper>
       <S.Wrapper>
         <S.Info>
-          <S.Name>
+          <S.Flex>
+            <S.Column>
+              <S.Name>
+                <Image
+                  src={operator.icon.url}
+                  alt={operator.name}
+                  width={90}
+                  height={90}
+                />
+                <S.Title>{operator.name}</S.Title>
+              </S.Name>
+              <S.Badge>{operator.side}</S.Badge>
+            </S.Column>
             <Image
-              src={operator.icon.url}
+              src={operator.picture.url}
               alt={operator.name}
-              width={90}
-              height={90}
+              width={440}
+              height={515}
+              className="operator-picture"
             />
-            <S.Title>{operator.name}</S.Title>
-          </S.Name>
-          <S.Badge>{operator.side}</S.Badge>
+          </S.Flex>
           <S.Flex>
             <S.Box>
               <S.BoxLabel>REAL NAME</S.BoxLabel>
