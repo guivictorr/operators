@@ -25,10 +25,12 @@ git clone https://github.com/guivictorr/operators.git
 ## 2. Change to project folder
 cd operators
 
-## 3. Install dependencies
+## 3. Setup .env file
+
+## 4. Install dependencies
 yarn
 
-## 4. Run the app
+## 5. Run the app
 yarn dev
 ```
 
